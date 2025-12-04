@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MixMatched - Build Community. Experience Connections.</title>
+    
+    <!-- Google Fonts: DM Sans (Matches the reference) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#EA580C', /* Warm Orange (Your Brand) */
+                            dark: '#C2410C',
+                        },
+                        dark: {
+                            DEFAULT: '#29150F', /* Deep Coffee */
+                            secondary: '#3D405B', /* Reference Navy Tone */
+                        },
+                        light: '#FFF7ED',
+                        accent: '#F2CC8F', /* Soft Yellow from reference style */
+                        green: '#81B29A', /* Sage from reference */
+                    },
+                    fontFamily: {
+                        sans: ['DM Sans', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'card': '0 1rem 3rem rgba(0,0,0,.175)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        
+        /* Rotating Text Animation (from reference) */
+        .cd-words-wrapper {
+            display: inline-block;
+            position: relative;
+            text-align: left;
+        }
+        .cd-words-wrapper b {
+            display: inline-block;
+            position: absolute;
+            white-space: nowrap;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .cd-words-wrapper b.is-visible {
+            position: relative;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #FFF7ED; }
+        ::-webkit-scrollbar-thumb { background: #EA580C; border-radius: 4px; }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-700 bg-white">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 group">
+                <!-- Logo Image Placeholder -->
+                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white text-xl">
+                    <i class="ph-bold ph-users-three"></i>
+                </div>
+                <div class="leading-tight">
+                    <span class="block text-xl font-bold text-dark tracking-tight">MixMatched</span>
+                    <small class="text-xs text-gray-500 uppercase tracking-widest font-bold">Community Club</small>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="#home" class="text-gray-600 hover:text-primary font-medium text-sm uppercase tracking-wide">Home</a>
+                <a href="#about" class="text-gray-600 hover:text-primary font-medium text-sm uppercase tracking-wide">Process</a>
+                <a href="#membership" class="text-gray-600 hover:text-primary font-medium text-sm uppercase tracking-wide">Why Join</a>
+                <a href="#events" class="text-gray-600 hover:text-primary font-medium text-sm uppercase tracking-wide">Upcoming Pods</a>
+                <a href="#contact" class="px-6 py-2 bg-transparent border-2 border-primary text-primary rounded-full font-bold hover:bg-primary hover:text-white transition-all">Member Login</a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button class="lg:hidden text-2xl text-dark">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (Split Layout + Waves) -->
+    <section id="home" class="relative bg-dark pt-32 pb-0 lg:pt-40 lg:pb-0 overflow-hidden min-h-[80vh] flex items-center">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-dark/90 z-0"></div>
+        
+        <!-- Top Wave (Upside down) -->
+        <!-- <div class="absolute top-0 left-0 w-full overflow-hidden rotate-180 leading-0">
+             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="fill-white"><path fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+        </div> -->
+
+        <div class="container mx-auto px-6 relative z-10 pb-32">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Text Content -->
+                <div class="text-center lg:text-left">
+                    <h2 class="text-primary font-bold text-xl uppercase tracking-widest mb-2">Welcome to the Club</h2>
+                    
+                    <h1 class="text-5xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+                        MixMatched is<br>
+                        <span class="cd-words-wrapper text-accent">
+                            <b class="is-visible">Community</b>
+                            <b>Connection</b>
+                            <b>Adventure</b>
+                        </span>
+                    </h1>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#about" class="px-8 py-3 bg-white text-dark rounded-full font-bold hover:bg-gray-100 transition-all shadow-lg">Our Process</a>
+                        <a href="#contact" class="px-8 py-3 bg-primary text-white rounded-full font-bold hover:bg-primary-dark transition-all shadow-lg ring-4 ring-primary/30">Become a Member</a>
+                    </div>
+                </div>
+
+                <!-- Right Side Image/Video Area -->
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 rotate-2 hover:rotate-0 transition-all duration-500">
+                    <div class="aspect-video bg-gray-800 relative">
+                        <!-- Simulate Video Embed or Hero Image -->
+                        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover opacity-80" alt="Group of friends">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <button class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-primary shadow-lg hover:scale-110 transition-transform">
+                                <i class="ph-fill ph-play text-2xl ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Bottom Wave -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-0">
+             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="fill-white"><path fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+        </div>
+    </section>
+
+    <!-- ABOUT / PROCESS SECTION -->
+    <section id="about" class="py-24 bg-white relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark mb-4">About MixMatched</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Left Text -->
+                <div class="lg:col-span-5">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Our Club History</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        <strong class="text-dark">Since 2023</strong>, MixMatched has been redefining how adults make friends. We aren't just an app; we are a Bootstrap for your social life. 
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        We believe connections happen when you are busy having fun. No awkward coffee dates. No resumes. Just real people doing real activities.
+                    </p>
+                    
+                    <div class="mt-8 p-6 bg-light rounded-2xl border-l-4 border-primary">
+                        <p class="italic text-gray-600">"The best way to predict the future is to create it together."</p>
+                        <p class="text-primary font-bold mt-2">- Founder</p>
+                    </div>
+                </div>
+
+                <!-- Right Cards (Mimicking "Members" from reference) -->
+                <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+                    
+                    <!-- Card 1: Vibe Check -->
+                    <div class="bg-white rounded-xl shadow-card overflow-hidden group">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Vibe Check">
+                            <div class="absolute bottom-4 left-4 bg-white p-2 rounded-lg shadow-md flex gap-2">
+                                <a href="#" class="w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full hover:bg-dark"><i class="ph-bold ph-check"></i></a>
+                            </div>
+                        </div>
+                        <div class="p-6 flex items-center justify-between">
+                            <div>
+                                <h4 class="font-bold text-xl text-dark">Step 1: The Vibe</h4>
+                                <p class="text-gray-500 text-sm">We find your people.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: The Event -->
+                    <div class="bg-white rounded-xl shadow-card overflow-hidden group mt-8 sm:mt-0">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Event">
+                            <div class="absolute bottom-4 left-4 bg-white p-2 rounded-lg shadow-md flex gap-2">
+                                <a href="#" class="w-8 h-8 flex items-center justify-center bg-green text-white rounded-full hover:bg-dark"><i class="ph-bold ph-calendar"></i></a>
+                            </div>
+                        </div>
+                        <div class="p-6 flex items-center justify-between">
+                            <div>
+                                <h4 class="font-bold text-xl text-dark">Step 2: The Event</h4>
+                                <p class="text-gray-500 text-sm">Curated adventures.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION BG IMAGE (Newsletter Style) -->
+    <section class="py-24 bg-fixed bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1522163180403-a4e8d054d439?auto=format&fit=crop&q=80&w=1600');">
+        <div class="absolute inset-0 bg-primary/90"></div>
+        
+        <!-- Top Wave Divider -->
+        <div class="absolute top-0 left-0 w-full overflow-hidden leading-0">
+             <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" class="fill-white"><path fill-opacity="1" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path> <path fill-opacity="1" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path> <path fill-opacity="1" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill-opacity="1" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill-opacity="1" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-white">
+            <div class="max-w-xl">
+                <h2 class="text-3xl font-bold mb-4">Get notified of new pods</h2>
+                <p class="mb-8 text-white/80">Don't miss out when a Hiking or Foodie group opens in your area. Join the waitlist.</p>
+                
+                <form class="flex gap-2">
+                    <div class="relative flex-1">
+                        <i class="ph ph-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl"></i>
+                        <input type="email" placeholder="Email address" class="w-full pl-12 pr-4 py-4 rounded-lg text-dark focus:outline-none">
+                    </div>
+                    <button class="bg-dark hover:bg-black px-8 py-4 rounded-lg font-bold transition-colors">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Bottom Wave Divider -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-0 rotate-180">
+             <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" class="fill-white"><path fill-opacity="1" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path> <path fill-opacity="1" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path> <path fill-opacity="1" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill-opacity="1" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill-opacity="1" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
+        </div>
+    </section>
+
+    <!-- MEMBERSHIP SECTION (Replaced with Comparison) -->
+    <section id="membership" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark"><span class="text-primary">Membership</span> at MixMatched</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Comparison Table (Replaces Price Table) -->
+                <div class="lg:col-span-7">
+                    <h4 class="text-xl font-bold mb-6 text-dark">Why it works better</h4>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-center border-collapse">
+                            <thead>
+                                <tr class="bg-light">
+                                    <th class="p-4 text-left rounded-tl-xl text-dark">Features</th>
+                                    <th class="p-4 text-gray-500 font-normal">Dating Apps</th>
+                                    <th class="p-4 text-gray-500 font-normal">Meetups</th>
+                                    <th class="p-4 bg-primary text-white rounded-t-xl font-bold text-lg w-1/4">MixMatched</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <th class="p-4 text-left font-medium text-gray-700">Vetted Members</th>
+                                    <td class="p-4 text-red-400"><i class="ph-fill ph-x-circle text-xl"></i></td>
+                                    <td class="p-4 text-green-500"><i class="ph-fill ph-check-circle text-xl"></i></td>
+                                    <td class="p-4 bg-primary/5 text-primary"><i class="ph-fill ph-check-circle text-xl"></i></td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <th class="p-4 text-left font-medium text-gray-700">Small Groups (4-6)</th>
+                                    <td class="p-4 text-red-400"><i class="ph-fill ph-x-circle text-xl"></i></td>
+                                    <td class="p-4 text-red-400"><i class="ph-fill ph-x-circle text-xl"></i></td>
+                                    <td class="p-4 bg-primary/5 text-primary"><i class="ph-fill ph-check-circle text-xl"></i></td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <th class="p-4 text-left font-medium text-gray-700">Curated Activities</th>
+                                    <td class="p-4 text-red-400"><i class="ph-fill ph-x-circle text-xl"></i></td>
+                                    <td class="p-4 text-green-500"><i class="ph-fill ph-check-circle text-xl"></i></td>
+                                    <td class="p-4 bg-primary/5 text-primary"><i class="ph-fill ph-check-circle text-xl"></i></td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <th class="p-4 text-left font-medium text-gray-700">No Awkward Rejection</th>
+                                    <td class="p-4 text-red-400"><i class="ph-fill ph-x-circle text-xl"></i></td>
+                                    <td class="p-4 text-red-400"><i class="ph-fill ph-x-circle text-xl"></i></td>
+                                    <td class="p-4 bg-primary/5 text-primary"><i class="ph-fill ph-check-circle text-xl"></i></td>
+                                </tr>
+                                <tr>
+                                    <th class="p-4 text-left font-medium text-gray-700">Real Friendships</th>
+                                    <td class="p-4 text-red-400"><i class="ph-fill ph-x-circle text-xl"></i></td>
+                                    <td class="p-4 text-gray-400"><i class="ph-fill ph-minus-circle text-xl"></i></td>
+                                    <td class="p-4 bg-primary/5 text-primary rounded-b-xl"><i class="ph-fill ph-check-circle text-xl"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Form (Right Side) -->
+                <div class="lg:col-span-5">
+                    <h4 class="text-xl font-bold mb-6 text-dark">Please join us!</h4>
+                    <form class="bg-primary p-8 rounded-3xl shadow-card text-white">
+                        <h4 class="text-2xl font-bold mb-6">Become a member</h4>
+                        
+                        <div class="space-y-4">
+                            <div class="relative">
+                                <input type="text" id="name" class="peer w-full h-14 px-4 pt-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-transparent focus:outline-none focus:bg-white/20" placeholder="Full Name">
+                                <label for="name" class="absolute left-4 top-1 text-xs text-white/70 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-xs">Full Name</label>
+                            </div>
+                            
+                            <div class="relative">
+                                <input type="email" id="email" class="peer w-full h-14 px-4 pt-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-transparent focus:outline-none focus:bg-white/20" placeholder="Email">
+                                <label for="email" class="absolute left-4 top-1 text-xs text-white/70 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-xs">Email Address</label>
+                            </div>
+
+                            <div class="relative">
+                                <textarea id="msg" class="peer w-full h-32 px-4 pt-6 rounded-lg bg-white/10 border border-white/20 text-white placeholder-transparent focus:outline-none focus:bg-white/20 resize-none" placeholder="Message"></textarea>
+                                <label for="msg" class="absolute left-4 top-2 text-xs text-white/70 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-xs">Why do you want to join?</label>
+                            </div>
+                            
+                            <button class="w-full h-14 bg-white text-primary font-bold rounded-lg hover:bg-light transition-colors">Submit Application</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENTS SECTION (Adapted for "Upcoming Pods") -->
+    <section id="events" class="py-24 bg-light relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-dark mb-8">Upcoming Pod Launches</h2>
+            
+            <!-- Pod 1 -->
+            <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 mb-6 flex flex-col lg:flex-row gap-8 items-center">
+                <!-- Date Badge -->
+                <div class="flex lg:block items-center gap-2 lg:text-center min-w-[100px]">
+                    <h6 class="text-5xl font-bold text-primary leading-none">24</h6>
+                    <strong class="text-gray-500 uppercase tracking-widest text-sm">Feb 2024</strong>
+                </div>
+
+                <!-- Image -->
+                <div class="w-full lg:w-64 h-48 rounded-2xl overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1546213290-e1b492ab3eee?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Shopping">
+                    <div class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center text-dark"><i class="ph-bold ph-arrow-right"></i></div>
+                </div>
+
+                <!-- Info -->
+                <div class="flex-1">
+                    <h3 class="text-xl font-bold text-dark mb-3">The "Flea Market" Crew</h3>
+                    <p class="text-gray-600 mb-6">Explore the vintage market downtown, then grab street tacos. Perfect for creatives and thrifters.</p>
+                    
+                    <div class="flex flex-wrap items-center gap-6 pt-4 border-t border-gray-100">
+                        <div class="flex items-center gap-2">
+                            <span class="text-gray-400 text-sm font-bold uppercase">Location:</span>
+                            <span class="text-dark font-medium">Downtown Arts District</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-gray-400 text-sm font-bold uppercase">Spots:</span>
+                            <span class="text-primary font-medium">2 Left</span>
+                        </div>
+                        <a href="#" class="ml-auto px-6 py-2 bg-primary text-white rounded-full font-bold hover:bg-dark transition-colors">Join Pod</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pod 2 -->
+            <div class="bg-primary/5 rounded-3xl p-6 shadow-sm border border-primary/10 flex flex-col lg:flex-row gap-8 items-center">
+                <!-- Date Badge -->
+                <div class="flex lg:block items-center gap-2 lg:text-center min-w-[100px]">
+                    <h6 class="text-5xl font-bold text-dark leading-none">28</h6>
+                    <strong class="text-gray-500 uppercase tracking-widest text-sm">Feb 2024</strong>
+                </div>
+
+                <!-- Image -->
+                <div class="w-full lg:w-64 h-48 rounded-2xl overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Hiking">
+                    <div class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center text-dark"><i class="ph-bold ph-arrow-right"></i></div>
+                </div>
+
+                <!-- Info -->
+                <div class="flex-1">
+                    <h3 class="text-xl font-bold text-dark mb-3">Sunset Hiking Group</h3>
+                    <p class="text-gray-600 mb-6">Easy 3-mile loop to catch the sunset. Drinks afterwards at the lodge.</p>
+                    
+                    <div class="flex flex-wrap items-center gap-6 pt-4 border-t border-gray-200">
+                        <div class="flex items-center gap-2">
+                            <span class="text-gray-400 text-sm font-bold uppercase">Location:</span>
+                            <span class="text-dark font-medium">West Ridge Trail</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-gray-400 text-sm font-bold uppercase">Spots:</span>
+                            <span class="text-primary font-medium">4 Left</span>
+                        </div>
+                        <a href="#" class="ml-auto px-6 py-2 bg-dark text-white rounded-full font-bold hover:bg-primary transition-colors">Join Pod</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12">
+                
+                <!-- Contact Form -->
+                <div>
+                    <h2 class="text-4xl font-bold text-dark mb-2">Contact MixMatched</h2>
+                    <p class="text-gray-500 mb-8">Have questions about safety, groups, or becoming a host?</p>
+
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="relative">
+                                <input type="text" id="c-name" class="peer w-full h-14 px-4 pt-4 rounded-lg bg-gray-50 border border-gray-200 text-dark placeholder-transparent focus:outline-none focus:border-primary focus:bg-white transition-all" placeholder="Full Name">
+                                <label for="c-name" class="absolute left-4 top-1 text-xs text-gray-400 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-xs">Full Name</label>
+                            </div>
+                            <div class="relative">
+                                <input type="email" id="c-email" class="peer w-full h-14 px-4 pt-4 rounded-lg bg-gray-50 border border-gray-200 text-dark placeholder-transparent focus:outline-none focus:border-primary focus:bg-white transition-all" placeholder="Email">
+                                <label for="c-email" class="absolute left-4 top-1 text-xs text-gray-400 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-xs">Email</label>
+                            </div>
+                        </div>
+
+                        <div class="relative">
+                            <textarea id="c-msg" class="peer w-full h-32 px-4 pt-6 rounded-lg bg-gray-50 border border-gray-200 text-dark placeholder-transparent focus:outline-none focus:border-primary focus:bg-white transition-all resize-none" placeholder="Message"></textarea>
+                            <label for="c-msg" class="absolute left-4 top-2 text-xs text-gray-400 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-xs">Message</label>
+                        </div>
+                        
+                        <button class="w-full h-14 bg-dark text-white font-bold rounded-lg hover:bg-primary transition-colors">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Info & Map -->
+                <div>
+                    <div class="bg-light p-8 rounded-3xl h-full flex flex-col justify-center items-center text-center relative overflow-hidden">
+                        <img src="images/WorldMap.svg" class="absolute inset-0 opacity-10 w-full h-full object-cover" alt="Map pattern"> <!-- Placeholder for map graphic if available -->
+                        <div class="relative z-10">
+                            <h4 class="text-2xl font-bold text-dark mb-2">New York City, NY</h4>
+                            <p class="text-gray-500 mb-6">Headquarters</p>
+                            
+                            <a href="mailto:hello@mixmatched.com" class="text-xl font-bold text-primary hover:underline">hello@mixmatched.com</a>
+                            <p class="mt-2 text-gray-600">(555) 123-4567</p>
+
+                            <a href="#" class="inline-block mt-8 text-sm font-bold uppercase tracking-widest text-dark border-b-2 border-primary pb-1 hover:text-primary">Get Directions</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-gray-100 relative pt-24 pb-12">
+        <!-- Top Wave (Green from reference) -->
+        <div class="absolute top-0 left-0 w-full overflow-hidden leading-0 -translate-y-full">
+             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="fill-white"><path fill="#81B29A" fill-opacity="0" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+        </div>
+
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-3 gap-12 items-start">
+                
+                <!-- Logo -->
+                <div>
+                    <a href="#" class="flex items-center gap-2 group mb-6">
+                        <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white text-xl">
+                            <i class="ph-bold ph-users-three"></i>
+                        </div>
+                        <div class="leading-tight">
+                            <span class="block text-xl font-bold text-dark tracking-tight">MixMatched</span>
+                            <small class="text-xs text-gray-500 uppercase tracking-widest font-bold">Community Club</small>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Info -->
+                <div>
+                    <h5 class="font-bold text-lg text-dark mb-4">Join Us</h5>
+                    <p class="flex justify-between border-b border-gray-100 pb-2 mb-2">
+                        <span class="text-gray-500">Mon-Fri</span>
+                        <span class="font-bold text-dark">9:00 AM - 6:00 PM</span>
+                    </p>
+                    <p class="flex justify-between">
+                        <span class="text-gray-500">Sat-Sun</span>
+                        <span class="font-bold text-dark">Events Only</span>
+                    </p>
+                    <p class="text-gray-400 text-sm mt-8">Copyright © 2024 MixMatched Inc.</p>
+                </div>
+
+                <!-- Social -->
+                <div class="lg:text-right">
+                    <div class="flex lg:justify-end gap-4 mb-6">
+                        <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-dark hover:bg-primary hover:text-white transition-colors"><i class="ph-bold ph-instagram-logo"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-dark hover:bg-primary hover:text-white transition-colors"><i class="ph-bold ph-twitter-logo"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-dark hover:bg-primary hover:text-white transition-colors"><i class="ph-bold ph-whatsapp-logo"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Bottom Wave (Green) -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-0">
+             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#81B29A" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+        </div>
+    </footer>
+
+    <!-- JS for Animation -->
+    <script>
+        // Simple script to handle the rotating text
+        document.addEventListener('DOMContentLoaded', () => {
+            const words = document.querySelectorAll('.cd-words-wrapper b');
+            let index = 0;
+            setInterval(() => {
+                words[index].classList.remove('is-visible');
+                index = (index + 1) % words.length;
+                words[index].classList.add('is-visible');
+            }, 2500);
+        });
+    </script>
+</body>
+</html>
